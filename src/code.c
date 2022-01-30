@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include "code1.h"
+#include "code.h"
 
 int mult(uint64_t x, uint64_t y)
 {
@@ -8,5 +8,6 @@ int mult(uint64_t x, uint64_t y)
 
 int divide(uint64_t x, uint64_t y)
 {
-    return x / y;
+
+    return (y == 0) ? 0 : x / y;
 }

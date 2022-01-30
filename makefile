@@ -21,7 +21,7 @@ endif
 
 UNITY_ROOT=../Unity-master
 
-CFLAGS=-std=c89
+CFLAGS := -std=c89
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Wpointer-arith
@@ -37,23 +37,23 @@ CFLAGS += -Wundef
 CFLAGS += -Wold-style-definition
 #CFLAGS += -Wno-misleading-indentation
 
-TARGET_BASE1=test1
-TARGET1 = $(TARGET_BASE1)$(TARGET_EXTENSION)
-SRC_FILES1=$(UNITY_ROOT)/src/unity.c src/code1.c test/test_code1.c test/test_runners/test_code1_runner.c
+TARGET_BASE=test
+TARGET = $(TARGET_BASE)$(TARGET_EXTENSION)
+SRC_FILES=$(UNITY_ROOT)/src/unity.c src/code.c test/test_code.c test/test_runners/test_code_runner.c
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src
 SYMBOLS=
 
 all: clean default
 
-default: $(SRC_FILES1) $(SRC_FILES2)
-	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
-	- ./$(TARGET1)
+default: $(SRC_FILES) $(SRC_FILES2)
+	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES) -o $(TARGET)
+	- ./$(TARGET)
 
-test/test_runners/test_code1_runner.c: test/test_code1.c
-	ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/test_code1.c test/test_runners/test_code1_runner.c
+test/test_runners/test_code_runner.c: test/test_code.c
+	ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/test_code.c test/test_runners/test_code_runner.c
 
 clean:
-	$(CLEANUP) $(TARGET1) $(TARGET2)
+	$(CLEANUP) $(TARGET)
 
 ci: CFLAGS += -Werror
 ci: default
