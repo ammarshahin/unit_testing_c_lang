@@ -24,7 +24,8 @@ jobs:
           repository: ThrowTheSwitch/Unity
 
       - run: |
-        cd .. & ls -l
+        cd ..
+        ls -l
 
       # Checks out repository
       - name: Checkout
