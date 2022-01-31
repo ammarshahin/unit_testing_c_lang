@@ -7,18 +7,21 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  # Job: Unit test suite
+  unit-tests:
+    name: "Unit Tests"
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    
-    - name: Unity
-      uses: actions/checkout@master
-      with:
-        name: ThrowTheSwitch/Unity
-        
+      # Install Ruby Testing Tools
+      - name: Setup Ruby Testing Tools
+        run: |
+          sudo gem install rspec
+          sudo gem install rubocop -v 0.57.2
 
-    
-    - name: Testing
-      run: make all
+      # Checks out repository under $GITHUB_WORKSPACE
+      - name: Checkout Latest Repo
+        uses: actions/checkout@v2
+
+      # Run Tests
+      - name: Run All Unit Tests
+        run: rake ci

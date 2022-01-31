@@ -19,7 +19,7 @@ ifeq ($(shell uname -s), Darwin)
 C_COMPILER=clang
 endif
 
-UNITY_ROOT=../Unity
+UNITY_ROOT=Unity
 
 CFLAGS := -std=c89
 CFLAGS += -Wall
@@ -53,7 +53,7 @@ test/test_runners/test_code_runner.c: test/test_code.c
 	ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/test_code.c test/test_runners/test_code_runner.c
 
 clean:
-	$(CLEANUP) $(TARGET)
+	$(CLEANUP) $(TARGET) *.exe
 
 ci: CFLAGS += -Werror
 ci: default
