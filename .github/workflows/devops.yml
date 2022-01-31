@@ -29,4 +29,6 @@ jobs:
 
       # Run Tests
       - name: Run All Unit Tests
-        run: make all
+        run: |
+        ls -l
+        make all
