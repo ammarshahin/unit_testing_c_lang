@@ -18,10 +18,6 @@ jobs:
           sudo gem install rspec
           sudo gem install rubocop -v 0.57.2
 
-      # Checks out repository under $GITHUB_WORKSPACE
-      - name: Checkout Latest Repo
-        uses: actions/checkout@v2
-
       # Run Tests
       - name: Run All Unit Tests
         run: make all
