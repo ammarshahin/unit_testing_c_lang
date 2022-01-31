@@ -30,3 +30,24 @@ void test_divide_shouldReturnZero(void)
     TEST_ASSERT_EQUAL_UINT64(0, divide(5, 0));
     TEST_ASSERT_EQUAL_UINT64(0, divide(0, 0));
 }
+
+void test_factorial_shouldReturnOne(void)
+{
+    TEST_ASSERT_EQUAL_UINT64(1, factorial(0));
+    TEST_ASSERT_EQUAL_UINT64(1, factorial(1));
+}
+
+void test_factorial_shouldReturnTwo(void)
+{
+    TEST_ASSERT_EQUAL_UINT64(2, factorial(2));
+}
+
+void test_factorial_shouldReturnSix(void)
+{
+    TEST_ASSERT_EQUAL_UINT64(6, factorial(3));
+}
+
+void test_factorial_shouldReturn120(void)
+{
+    TEST_ASSERT_EQUAL_UINT64(120, factorial(5));
+}

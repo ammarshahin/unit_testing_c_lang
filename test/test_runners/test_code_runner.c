@@ -10,6 +10,10 @@ extern void tearDown(void);
 extern void test_mult_shouldReturnZero(void);
 extern void test_mult_shouldReturnTen(void);
 extern void test_divide_shouldReturnZero(void);
+extern void test_factorial_shouldReturnOne(void);
+extern void test_factorial_shouldReturnTwo(void);
+extern void test_factorial_shouldReturnSix(void);
+extern void test_factorial_shouldReturn120(void);
 
 
 /*=======Mock Management=====*/
@@ -74,6 +78,10 @@ int main(void)
   run_test(test_mult_shouldReturnZero, "test_mult_shouldReturnZero", 13);
   run_test(test_mult_shouldReturnTen, "test_mult_shouldReturnTen", 20);
   run_test(test_divide_shouldReturnZero, "test_divide_shouldReturnZero", 27);
+  run_test(test_factorial_shouldReturnOne, "test_factorial_shouldReturnOne", 34);
+  run_test(test_factorial_shouldReturnTwo, "test_factorial_shouldReturnTwo", 40);
+  run_test(test_factorial_shouldReturnSix, "test_factorial_shouldReturnSix", 45);
+  run_test(test_factorial_shouldReturn120, "test_factorial_shouldReturn120", 50);
 
   return UnityEnd();
 }

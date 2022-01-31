@@ -21,7 +21,7 @@ endif
 
 UNITY_ROOT= Unity
 
-CFLAGS := -std=c89
+CFLAGS := -std=c99
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Wpointer-arith
