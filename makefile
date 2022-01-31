@@ -54,6 +54,3 @@ test/test_runners/test_code_runner.c: test/test_code.c
 
 clean:
 	$(CLEANUP) $(TARGET) *.exe
-
-ci: CFLAGS += -Werror
-ci: default
