@@ -10,18 +10,16 @@ jobs:
   # Job: Unit test suite
   unit-tests:
     name: "Unit Tests"
+
     runs-on: ubuntu-latest
+
     steps:
+
       # Install Ruby Testing Tools
       - name: Setup Ruby Testing Tools
         run: |
           sudo gem install rspec
           sudo gem install rubocop -v 0.57.2
-
-      - name: Unity
-        uses: actions/checkout@master
-        with:
-          repository: ThrowTheSwitch/Unity
 
       # Checks out repository
       - name: Checkout
