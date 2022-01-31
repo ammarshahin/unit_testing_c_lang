@@ -28,7 +28,6 @@ jobs:
         uses: actions/checkout@v2
 
       # Run Tests
-      - name: Run All Unit Tests
-        run: |
-        ls -l
-        make all
+      - name: Run Unit Tests
+        run: make all
+
