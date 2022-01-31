@@ -12,6 +12,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    
+    - name: Unity
+      uses: actions/checkout@master
+      with:
+        name: ThrowTheSwitch/Unity
+        
 
+    
     - name: Testing
       run: make all
