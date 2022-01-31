@@ -23,10 +23,6 @@ jobs:
         with:
           repository: ThrowTheSwitch/Unity
 
-      - run: |
-        cd ..
-        ls -l
-
       # Checks out repository
       - name: Checkout
         uses: actions/checkout@v2
