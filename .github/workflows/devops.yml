@@ -24,4 +24,4 @@ jobs:
 
       # Run Tests
       - name: Run All Unit Tests
-        run: rake ci
+        run: make all
