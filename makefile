@@ -55,9 +55,9 @@ build: $(SRC_FILES) $(SRC_FILES2)
 
 
 test: $(SRC_FILES) $(SRC_FILES2)
-	@echo Testing...
-	@$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SRC_FILES) -o $(TARGET)
-	@- ./$(TARGET)
+	echo Testing...
+	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SRC_FILES) -o $(TARGET)
+	- ./$(TARGET)
 
 test/test_runners/test_code_runner.c: test/test_code.c
 	@ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/test_code.c test/test_runners/test_code_runner.c
