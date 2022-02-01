@@ -38,30 +38,19 @@ CFLAGS += -Wold-style-definition
 #CFLAGS += -Wno-misleading-indentation
 
 TARGET_BASE=test
-RELEASE_BASE=out
-
-TARGET := $(TARGET_BASE)$(TARGET_EXTENSION)
-RELEASE:= ${RELEASE_BASE}$(TARGET_EXTENSION)
+TARGET = $(TARGET_BASE)$(TARGET_EXTENSION)
 SRC_FILES=$(UNITY_ROOT)/src/unity.c src/code.c test/test_code.c test/test_runners/test_code_runner.c
-PROG_FILES= src/main.c src/code.c
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src
+SYMBOLS=
 
-all: clean test
+all: clean default
 
-build: $(SRC_FILES) $(SRC_FILES2)
-	@echo Building...
-	@$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(PROG_FILES) -o $(RELEASE)
-	@- ./$(RELEASE)
-
-
-test: $(SRC_FILES) $(SRC_FILES2)
-	echo Testing...
-	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SRC_FILES) -o $(TARGET)
+default: $(SRC_FILES) $(SRC_FILES2)
+	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES) -o $(TARGET)
 	- ./$(TARGET)
 
 test/test_runners/test_code_runner.c: test/test_code.c
-	@ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/test_code.c test/test_runners/test_code_runner.c
+	ruby $(UNITY_ROOT)/auto/generate_test_runner.rb test/test_code.c test/test_runners/test_code_runner.c
 
 clean:
-	@echo cleaning...
-	@$(CLEANUP) *${TARGET_EXTENSION}
+	$(CLEANUP) $(TARGET) *.exe
